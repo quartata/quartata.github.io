@@ -1,0 +1,6 @@
+[submodule "backend/mongoose"]
+	path = backend/mongoose
+	url = https://github.com/cesanta/mongoose
+[submodule "backend/cJSON"]
+	path = backend/cJSON
+	url = https://github.com/DaveGamble/cJSON
