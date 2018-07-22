@@ -15,9 +15,8 @@ index.html: site.js frontend/site.html assets/avatar.png assets/*.o.woff2
 	rm temp.html
 
 backend/backend: backend/backend.c backend/update_tweets.c
-	git submodule init && git submodule update
-	gcc -Ofast -Ibackend $(INCLUDE) -o backend/backend backend/mongoose/mongoose.c backend/backend.c -lpq -lpthread
-	gcc -Ofast -Ibackend $(INCLUDE) -DMG_ENABLE_SSL -o backend/update_tweets backend/mongoose/mongoose.c backend/cJSON/cJSON.c backend/update_tweets.c -lpq -lssl -lcrypto
+	gcc -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -o backend/backend backend/mongoose/mongoose.c backend/backend.c -lpq -lpthread -lssl -lcrypto -lldap -lgssapi_krb5
+	gcc -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -DMG_ENABLE_SSL -o backend/update_tweets backend/mongoose/mongoose.c backend/cJSON/cJSON.c backend/update_tweets.c -lpq -lpthread -lssl -lcrypto -lldap -lgssapi_krb5
 
 frontend_deploy: frontend
 	git stash
@@ -26,11 +25,15 @@ frontend_deploy: frontend
 	git reset --soft master
 	git checkout master
 
+	git reset
 	git add -f index.html site.js assets/*.pcm assets/*.m4a assets/*.ogg
 	git commit -m "deploy"
 	git push origin master:master
 
-	git branch site
+	git checkout --detach
+	git reset --soft site
+	git checkout site
+
 	git stash apply
 
 backend_deploy:
