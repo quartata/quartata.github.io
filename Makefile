@@ -34,7 +34,7 @@ frontend_deploy: frontend
 	git reset --soft site
 	git checkout site
 
-	git stash apply
+	-git stash apply
 
 backend_deploy:
 	git push heroku site:master
