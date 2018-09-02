@@ -5,8 +5,8 @@ use MIME::Base64;
 
 my @replacements =
 (
-    ["//!SPIRAX", "assets/spirax.o.woff2", 1],
-    ["//!SCP", "assets/source_code_pro.o.woff2", 1],
+    ["//!SPIRAX", "assets/spirax.woff", 1],
+    ["//!SCP", "assets/source_code_pro.woff", 1],
     ["//!AVATAR", "assets/avatar.png", 1],
 );
 

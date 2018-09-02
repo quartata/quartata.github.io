@@ -3,7 +3,7 @@ node_modules
 site.js
 index.html
 temp.html
-assets/*.o.woff2
+assets/*.woff
 backend/backend
 backend/backend.dSYM
 backend/update_tweets
