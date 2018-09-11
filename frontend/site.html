@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="iso-8859-1">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>wsbsite</title>
 
         <style>
@@ -47,6 +45,7 @@
                 height: 92%;
 
                 background-color: rgba(0, 0, 0, 0.4);
+                border-radius: 15px;
             }
 
             table
@@ -85,19 +84,40 @@
                 font-size: 17pt;
             }
 
-            span
+            @media only screen and (max-width: 700px)
             {
-                height: 40%;
-                padding-left: 0.75%;
+                a
+                {
+                    font-size: 8pt;
+                }
+
+                p
+                {
+                    font-size: 13pt;
+                }
             }
 
-            img#m
+            span
             {
                 position: absolute;
-                left: 0.75%;
-                bottom: 1%;
+                left: 1%;
+            }
 
+            span#m
+            {
+                position: absolute;
                 height: 40%;
+                width: 96%;
+                left: 1%;
+
+                background: url("//quartata.herokuapp.com/i");
+                background-repeat: no-repeat;
+
+                -webkit-background-size: contain;
+                -moz-background-size: contain;
+                background-size: contain;
+
+                filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//quartata.herokuapp.com/i',sizingMethod='scale');
             }
 
             img:hover
@@ -106,9 +126,19 @@
                 filter: invert(1);
             }
         </style>
+
+        <meta charset="iso-8859-1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
     </head>
 
     <body id="b">
+        <script src="/site.js" async defer></script>
+
+        <script>
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","UA-121981914-1");
+        </script>
+        <script src="//www.googletagmanager.com/gtag/js?id=UA-121981914-1" async defer></script>
+
         <canvas id="c"></canvas>
 
         <div>
@@ -142,19 +172,11 @@
 
             <br /><br />
 
-            <span>
-                latest matserpiece:
-                <img id="m" src="//quartata.herokuapp.com/i">
-            </span>
-            
+            <span>latest matserpiece:</span>
+
+            <br />
+
+            <span id="m"></span>
         </div>
-
-        <script src="/site.js"></script>
-
-        <script>
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","UA-121981914-1");
-        </script>
-
-        <script src="//www.googletagmanager.com/gtag/js?id=UA-121981914-1"></script>
     </body>
 </html>
