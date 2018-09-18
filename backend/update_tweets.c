@@ -128,6 +128,11 @@ void fetch_tweets(struct mg_connection *conn, int event, void *reqPtr)
 
     cJSON_ArrayForEach(tweet, start)
     {
+        if (cJSON_GetObjectItemCaseSensitive(tweet, "retweeted_status"))
+        {
+            continue;
+        }
+
         tid = cJSON_GetObjectItemCaseSensitive(tweet, "id_str")->valuestring;
         const int lengths[] = {strlen(tid)};
 
