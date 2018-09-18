@@ -15,8 +15,8 @@ index.html: site.js frontend/site.html assets/avatar.png assets/*.woff
 	rm temp.html
 
 backend/backend: backend/backend.c backend/update_tweets.c
-	gcc -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -o backend/backend backend/mongoose/mongoose.c backend/backend.c -lpq -lpthread -lssl -lcrypto -lldap -lgssapi_krb5
-	gcc -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -DMG_ENABLE_SSL -o backend/update_tweets backend/mongoose/mongoose.c backend/cJSON/cJSON.c backend/update_tweets.c -lpq -lpthread -lssl -lcrypto -lldap -lgssapi_krb5
+	gcc -no-pie -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -o backend/backend backend/mongoose/mongoose.c backend/backend.c -lpq -lpthread -lssl -lcrypto -ldl -lldap -lgssapi_krb5
+	gcc -no-pie -Ofast -Ibackend $(INCLUDE) -L/usr/lib/x86_64-linux-gnu/mit-krb5 -DMG_ENABLE_SSL -o backend/update_tweets backend/mongoose/mongoose.c backend/cJSON/cJSON.c backend/update_tweets.c -lpq -lpthread -lssl -lcrypto -ldl -lldap -lgssapi_krb5
 
 frontend_deploy: frontend
 	git stash
