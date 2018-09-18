@@ -30,8 +30,8 @@ static const char *fragShader = "precision highp float;" \
                                 "uniform vec2 resolution;" \
                                 "uniform vec4 currentColor;"
                                 "uniform vec4 colorMove;" \
-                                "float steps = " STR(STEPS) ";" \
-                                "float scale = 1.0/sqrt(2.0);" \
+                                "const float steps = " STR(STEPS) ";" \
+                                "const float scale = 1.0/sqrt(2.0);" \
 
                                 "void main()" \
                                 "{" \
